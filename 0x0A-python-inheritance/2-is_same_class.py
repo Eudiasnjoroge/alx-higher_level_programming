@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""modules for function that returns True if object is an instance of the class"""
+"""module for is_same_class method"""
 
 
 def is_same_class(obj, a_class):
