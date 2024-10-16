@@ -16,7 +16,7 @@ class Student:
         in this list must be retrieved
         Otherwise, all attributes must be retrieved
         """
-        
+
         try:
             for attr in attrs:
                 if type(attr) is not str:
