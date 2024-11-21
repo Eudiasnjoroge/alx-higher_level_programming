@@ -1,14 +1,8 @@
 -- Step 1: Identify the genre_id for Comedy
 -- Step 2: Find all shows that are not linked to the Comedy genre
-SELECT title
+SELECT tv_shows.title
 FROM tv_shows
-WHERE id NOT IN (
-	SELECT show_id
-	FROM tv_show_genres
-	WHERE genre_id = (
-		SELECT id
-		FROM tv_genres
-		WHERE name = 'Comedy'
-	)
-)
-ORDER BY title ASC;
+LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
+WHERE tv_show_genres.genre_id != (SELECT id FROM tv_genres WHERE name = 'Comedy')
+   OR tv_show_genres.genre_id IS NULL
+ORDER BY tv_shows.title;
